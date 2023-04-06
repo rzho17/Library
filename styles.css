@@ -1,5 +1,7 @@
 .card {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  /* flex-wrap: wrap; */
 }
 
 form {

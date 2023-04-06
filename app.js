@@ -35,17 +35,28 @@ const myLibrary = [harryPotter, lordOfTheRings];
 function showBook(arr) {
   arr.forEach((element) => {
     const infoCard = document.createElement("div");
+    const closebtn = document.createElement("button");
+    closebtn.textContent = "X";
+    closebtn.style.width = "2rem";
+    closebtn.style.height = "2rem";
     infoCard.style.width = "max-content";
     infoCard.style.height = "max-content";
 
-    card.append(infoCard);
+    card.append(infoCard, closebtn);
 
     const values = Object.values(element);
     values.forEach((item) => {
       const info = document.createElement("p");
       console.log(item);
       info.textContent = item;
+      closebtn.setAttribute("data-attribute", myLibrary.length - 1);
       infoCard.append(info);
+    });
+
+    closebtn.addEventListener("click", (e) => {
+      myLibrary.splice(e.target.getAttribute("data-attribute"), 1);
+      card.textContent = "";
+      showBook(myLibrary);
     });
   });
 }
