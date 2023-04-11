@@ -203,6 +203,7 @@ function showBook(arr) {
     const readBtn = document.createElement("button");
 
     closeBtn.dataset.attribute = n;
+    readBtn.dataset.attribute = n;
     n++;
 
     closeBtn.textContent = "X";
@@ -217,7 +218,14 @@ function showBook(arr) {
       info.textContent = values[i];
 
       infoCard.append(info);
-      readBtn.textContent = values[3];
+
+      readBtn.value = "readStatus";
+    }
+
+    if (values[3] === "on" || values[3] === "read") {
+      readBtn.textContent = "read";
+    } else {
+      readBtn.textContent = "not read";
     }
 
     infoCard.append(readBtn);
@@ -232,6 +240,21 @@ card.addEventListener("click", (e) => {
     card.textContent = "";
     n = 0;
     showBook(myLibrary);
+  }
+});
+
+card.addEventListener("click", (e) => {
+  if (e.target.value === "readStatus") {
+    if (
+      myLibrary[e.target.dataset.attribute].read === "on" ||
+      myLibrary[e.target.dataset.attribute].read === "read"
+    ) {
+      e.target.textContent = "not read";
+      myLibrary[e.target.dataset.attribute].read = "not read";
+    } else {
+      e.target.textContent = "read";
+      myLibrary[e.target.dataset.attribute].read = "read";
+    }
   }
 });
 
