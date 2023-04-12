@@ -2,9 +2,7 @@ const card = document.querySelector(".card");
 const newBook = document.querySelector("#new");
 const form = document.querySelector("#form");
 const close = document.querySelector("#close");
-const submit = document.querySelector("#submit");
 const formContainer = document.querySelector(".formContainer");
-const modal = document.querySelector(".modal");
 let n = 0;
 
 const harryPotter = {
@@ -54,8 +52,12 @@ function addToLibrary(arr) {
 
     if (values[3] === "on" || values[3] == "read") {
       readBtn.textContent = "Read";
+      readBtn.style.color = "green";
+      readBtn.style.borderColor = "green";
     } else {
       readBtn.textContent = "Not Read";
+      readBtn.style.color = "red";
+      readBtn.style.borderColor = "red";
     }
 
     infoCard.append(readBtn);
@@ -81,9 +83,13 @@ card.addEventListener("click", (e) => {
     ) {
       e.target.textContent = "Not Read";
       myLibrary[e.target.dataset.attribute].read = "not read";
+      e.target.style.color = "red";
+      e.target.style.borderColor = "red";
     } else {
       e.target.textContent = "Read";
       myLibrary[e.target.dataset.attribute].read = "read";
+      e.target.style.color = "green";
+      e.target.style.borderColor = "green";
     }
   }
 });
@@ -95,13 +101,6 @@ close.addEventListener("click", (e) => {
 newBook.addEventListener("click", () => {
   formContainer.style.display = " flex";
 });
-
-// document.addEventListener("click", (e) => {
-//   if (!e.target.contains(formContainer)) {
-//     formContainer.style.display = "none";
-//     alert("hi");
-//   }
-// });
 
 formContainer.addEventListener("click", (e) => {
   if (e.target.className === "formContainer") {
