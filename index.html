@@ -23,6 +23,7 @@
 
     <div class="formContainer">
       <button id="close">X</button>
+      <h2>Add a New Book</h2>
       <form action="" id="form">
         <fieldset>
           <label for="title">Title</label>
@@ -44,10 +45,13 @@
             min="1"
             max="2000"
           />
-          <label for="read">Have you read it?</label>
-          <input type="checkbox" id="read" name="read" />
+          <label for="read"
+            >Have you read it?
+            <input type="checkbox" id="read" name="read" />
+          </label>
+
+          <button type="submit" id="submit">SUBMIT</button>
         </fieldset>
-        <button type="submit" id="submit">SUBMIT</button>
       </form>
     </div>
     <script src="app.js"></script>

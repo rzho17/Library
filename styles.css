@@ -34,12 +34,11 @@ body {
   flex: 1;
   flex-wrap: wrap;
 
-  /* width: 250px; */
   word-wrap: break-word;
   text-align: left;
 
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 10px;
 
   padding: 1rem;
 
@@ -79,6 +78,37 @@ body {
 .bookContent p:last-of-type::before {
   content: "Pages: ";
 }
-form {
-  /* display: none; */
+
+.formContainer {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  flex: auto;
+  width: 350px;
+
+  padding: 1rem;
+  gap: 1rem;
+
+  border: 1px solid;
+  border-radius: 10px;
+
+  font-size: 1.5rem;
+}
+/* form {
+  height: 250px;
+} */
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 300px;
+  height: 300px;
+}
+
+#close {
+  align-self: flex-end;
 }

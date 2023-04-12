@@ -50,10 +50,10 @@ function addToLibrary(arr) {
       readBtn.className = "readStatus";
     }
 
-    if (values[3] === "on" || values[3] === "read") {
-      readBtn.textContent = "read";
+    if (values[3] === "on" || values[3] == "read") {
+      readBtn.textContent = "Read";
     } else {
-      readBtn.textContent = "not read";
+      readBtn.textContent = "Not Read";
     }
 
     infoCard.append(readBtn);
@@ -75,12 +75,12 @@ card.addEventListener("click", (e) => {
   if (e.target.value === "readStatus") {
     if (
       myLibrary[e.target.dataset.attribute].read === "on" ||
-      myLibrary[e.target.dataset.attribute].read === "read"
+      myLibrary[e.target.dataset.attribute].read == "read"
     ) {
-      e.target.textContent = "not read";
+      e.target.textContent = "Not Read";
       myLibrary[e.target.dataset.attribute].read = "not read";
     } else {
-      e.target.textContent = "read";
+      e.target.textContent = "Read";
       myLibrary[e.target.dataset.attribute].read = "read";
     }
   }
