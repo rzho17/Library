@@ -3,6 +3,8 @@ const newBook = document.querySelector("#new");
 const form = document.querySelector("#form");
 const close = document.querySelector("#close");
 const submit = document.querySelector("#submit");
+const formContainer = document.querySelector(".formContainer");
+const modal = document.querySelector(".modal");
 let n = 0;
 
 const harryPotter = {
@@ -86,6 +88,27 @@ card.addEventListener("click", (e) => {
   }
 });
 
+close.addEventListener("click", (e) => {
+  formContainer.style.display = " none";
+});
+
+newBook.addEventListener("click", () => {
+  formContainer.style.display = " flex";
+});
+
+// document.addEventListener("click", (e) => {
+//   if (!e.target.contains(formContainer)) {
+//     formContainer.style.display = "none";
+//     alert("hi");
+//   }
+// });
+
+formContainer.addEventListener("click", (e) => {
+  if (e.target.className === "formContainer") {
+    formContainer.style.display = "none";
+  }
+});
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -106,6 +129,8 @@ form.addEventListener("submit", (e) => {
   myLibrary.push(thisBook);
   const newThing = [myLibrary[myLibrary.length - 1]];
   addToLibrary(newThing);
+  //   form.reset();
+  //   formContainer.style.display = "none";
 });
 
 addToLibrary(myLibrary);

@@ -16,6 +16,10 @@ body {
   margin-bottom: 3rem;
 
   border: 1px solid;
+  position: sticky;
+  top: 0;
+
+  background-color: white;
 }
 
 .card {
@@ -81,13 +85,15 @@ body {
 
 .formContainer {
   margin: 0 auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   flex: auto;
-  width: 350px;
+  /* width: 350px; */
+  width: 100vw;
+  height: 100vh;
 
   padding: 1rem;
   gap: 1rem;
@@ -96,11 +102,30 @@ body {
   border-radius: 10px;
 
   font-size: 1.5rem;
+
+  position: fixed;
+
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(246, 144, 144, 0);
 }
 /* form {
   height: 250px;
 } */
 
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1rem;
+  gap: 1rem;
+
+  background-color: red;
+  border: 1px solid;
+  border-radius: 10px;
+}
 fieldset {
   display: flex;
   flex-direction: column;
