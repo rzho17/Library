@@ -1,7 +1,9 @@
 :root {
-  --close: red;
-  --light: white;
-  --dark: black;
+  --dark: red;
+  --light: #47b5ff;
+  --medium: #1363df;
+  --dark: #06283d;
+  --white: #dff6ff;
 }
 
 body {
@@ -10,7 +12,9 @@ body {
   margin: 0;
 
   box-sizing: border-box;
-  font-family: "Roboto Mono", monospace, sans-serif;
+  font-family: "Baskerville", "Roboto Mono", monospace, sans-serif;
+
+  background-color: var(--white);
 }
 
 /* Header section */
@@ -22,11 +26,17 @@ h1 {
 }
 
 #new {
+  font-family: "Baskerville", "Roboto Mono", monospace, sans-serif;
   font-size: 2rem;
   font-weight: 700;
 
   background-color: transparent;
+  border-radius: 10px;
   border: none;
+}
+
+#new:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #new:hover,
@@ -42,7 +52,7 @@ h1 {
   display: flex;
   justify-content: space-between;
 
-  padding: 2rem;
+  padding: 2rem 4.5rem;
 
   /* margin-bottom: 3rem; */
 
@@ -51,7 +61,7 @@ h1 {
 
   box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.4);
 
-  background-color: var(--light);
+  background-color: var(--dark);
 }
 
 /* Main Content */
@@ -59,9 +69,9 @@ h1 {
 .card {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  gap: 2rem;
 
-  padding: 3rem 2rem;
+  padding: 3rem 4.5rem;
 
   /* background-color: red; */
 }
@@ -80,12 +90,12 @@ h1 {
   border: 1px solid;
   border-radius: 10px;
 
-  padding: 1rem;
+  padding: 1rem 2rem;
 
   font-size: 1.3rem;
   letter-spacing: 1px;
 
-  background-color: var(--light);
+  background-color: var(--white);
   box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
   border: none;
 }
@@ -100,15 +110,15 @@ h1 {
   width: 2rem;
   height: 2rem;
 
-  color: var(--close);
+  color: var(--dark);
   background-color: transparent;
-  border: 1px solid var(--close);
+  border: 1px solid var(--dark);
   border-radius: 5px;
 }
 
 .remove:hover,
 #close:hover {
-  background-color: var(--close);
+  background-color: var(--dark);
   border: var(--light);
   color: var(--light);
 }
@@ -136,19 +146,22 @@ h1 {
 .bookContent p:nth-child(2)::before,
 .bookContent p:nth-child(2) {
   font-weight: 700;
-  content: '"';
   font-size: 1.5rem;
 }
 
-.bookContent p:nth-child(2)::after,
-.bookContent p:nth-child(2) {
-  content: '"';
-}
 .bookContent p:nth-child(3)::before {
-  content: "By: ";
+  content: "Author: ";
 }
 .bookContent p:last-of-type::before {
-  content: "Pages: ";
+  content: "Total pages: ";
+}
+.bookContent p:nth-child(3),
+.bookContent p:last-of-type {
+  margin: 0;
+}
+
+.bookContent p:last-of-type {
+  margin-bottom: 1rem;
 }
 
 /* Form section */
@@ -189,8 +202,7 @@ h1 {
   padding: 1rem;
   gap: 1rem;
 
-  background-color: rgb(125, 200, 253);
-  border: 1px solid;
+  background-color: var(--white);
   border-radius: 10px;
 }
 
@@ -209,11 +221,12 @@ h2 {
 }
 
 label {
-  color: var(--light);
+  color: var(--dark);
   margin: 0.5rem 0;
 }
 
 fieldset input {
+  font-family: "Baskerville", "Roboto Mono", monospace, sans-serif;
   font-size: 1.5rem;
   letter-spacing: 2px;
   height: 2rem;
@@ -223,9 +236,13 @@ fieldset input {
   border-radius: 10px;
 
   color: var(--dark);
-  background-color: var(--light);
+  background-color: var(--white);
 
-  border: none;
+  /* border: none; */
+}
+
+input:focus {
+  outline-color: var(--dark);
 }
 
 #close {
@@ -248,10 +265,23 @@ label:last-of-type {
   font-weight: 700;
   height: 3rem;
 
-  color: var(--light);
+  color: var(--white);
   background-color: var(--dark);
 
   border: none;
   border-radius: 10px;
   letter-spacing: 1px;
+}
+
+/* various */
+
+p,
+label,
+h2 {
+  color: var(--dark);
+}
+
+h1,
+#new {
+  color: var(--white);
 }

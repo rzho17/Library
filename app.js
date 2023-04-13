@@ -52,12 +52,12 @@ function addToLibrary(arr) {
 
     if (values[3] === "on" || values[3] == "read") {
       readBtn.textContent = "Read";
-      readBtn.style.color = "green";
-      readBtn.style.borderColor = "green";
+      readBtn.style.color = "#47b5ff";
+      readBtn.style.borderColor = "#47b5ff";
     } else {
       readBtn.textContent = "Not Read";
-      readBtn.style.color = "red";
-      readBtn.style.borderColor = "red";
+      readBtn.style.color = "#06283d";
+      readBtn.style.borderColor = "#06283d";
     }
 
     infoCard.append(readBtn);
@@ -83,13 +83,13 @@ card.addEventListener("click", (e) => {
     ) {
       e.target.textContent = "Not Read";
       myLibrary[e.target.dataset.attribute].read = "not read";
-      e.target.style.color = "red";
-      e.target.style.borderColor = "red";
+      e.target.style.color = "#06283d";
+      e.target.style.borderColor = "#06283d";
     } else {
       e.target.textContent = "Read";
       myLibrary[e.target.dataset.attribute].read = "read";
-      e.target.style.color = "green";
-      e.target.style.borderColor = "green";
+      e.target.style.color = "#47b5ff";
+      e.target.style.borderColor = "#47b5ff";
     }
   }
 });
@@ -128,8 +128,8 @@ form.addEventListener("submit", (e) => {
   myLibrary.push(thisBook);
   const newThing = [myLibrary[myLibrary.length - 1]];
   addToLibrary(newThing);
-  //   form.reset();
-  //   formContainer.style.display = "none";
+  form.reset();
+  formContainer.style.display = "none";
 });
 
 addToLibrary(myLibrary);
