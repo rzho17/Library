@@ -5,21 +5,7 @@ const close = document.querySelector("#close");
 const formContainer = document.querySelector(".formContainer");
 let n = 0;
 
-const harryPotter = {
-  title: "Harry Potter",
-  author: "JK smth",
-  pages: "69",
-  read: "not read",
-};
-
-const lordOfTheRings = {
-  title: "Lord of the Rings",
-  author: "JR smth",
-  pages: "420",
-  read: "not read",
-};
-
-const myLibrary = [harryPotter, lordOfTheRings];
+const myLibrary = [];
 
 function addToLibrary(arr) {
   arr.forEach((element) => {
