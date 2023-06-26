@@ -5,9 +5,13 @@ const close = document.querySelector("#close");
 const formContainer = document.querySelector(".formContainer");
 let n = 0;
 
-const myLibrary = [];
-
+let myLibrary = [];
+// console.log(localStorage.getItem("library"));
 function addToLibrary(arr) {
+  // let x = Object.values(JSON.parse(localStorage.getItem("library")));
+
+  // console.log(Object.values(localStorage.getItem("library")));
+  // localStorage.getItem("library");
   arr.forEach((element) => {
     const infoCard = document.createElement("div");
     const closeBtn = document.createElement("button");
@@ -125,6 +129,40 @@ form.addEventListener("submit", (e) => {
   addToLibrary(newThing);
   form.reset();
   formContainer.style.display = "none";
+  const stringify = JSON.stringify(myLibrary);
+  localStorage.setItem("library", stringify);
 });
 
+const titleInput = document.querySelector("#title");
+
+const validity = titleInput.validity;
+
+const authorInput = document.querySelector("#author");
+
+const authorValidity = authorInput.validity;
+
+titleInput.addEventListener("keyup", () => {
+  if (validity.valueMissing) {
+    titleInput.setCustomValidity("Please enter a valid title!");
+  } else if (titleInput.value.length > 50) {
+    titleInput.setCustomValidity("Title must not be more than 50 characters!");
+  } else {
+    titleInput.setCustomValidity("");
+  }
+});
+
+authorInput.addEventListener("keyup", () => {
+  if (authorValidity.valueMissing) {
+    authorInput.setCustomValidity("Please enter an author!");
+  } else if (authorInput.value.length > 25) {
+    authorInput.setCustomValidity(
+      "Author must not be more than 25 characters!"
+    );
+  } else {
+    authorInput.setCustomValidity("");
+  }
+});
+
+// localStorage.clear();
+myLibrary = JSON.parse(localStorage.getItem("library"));
 addToLibrary(myLibrary);

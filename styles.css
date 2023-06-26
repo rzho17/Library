@@ -285,3 +285,13 @@ h1,
 #new {
   color: var(--white);
 }
+
+input:invalid {
+  border: 1px dashed rgb(0, 0, 0);
+  background-color: rgb(251, 186, 186);
+}
+
+input:valid {
+  color: var(--dark);
+  background-color: var(--white);
+}
